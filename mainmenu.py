@@ -1,5 +1,5 @@
 #-------------------------------------------------------------------------------
-# Name:        main-menu.py
+# Name:        mainmenu.py
 # Purpose:
 #
 # Author:      Hannah
@@ -8,12 +8,15 @@
 # Copyright:   (c) Hannah 2015
 # Licence:     GNU GENERAL PUBLIC LICENSE Version 2, June 1991
 #-------------------------------------------------------------------------------
-
 def menu():
-    print("(1)  Play Game\n(2)  Rules\n(3)  Highscores")
-    choice=raw_input("What do you want to do? 1,2 or 3")
 
-##if __name__ == '__main__':
-##    menu()
+    print("\n\nMain Menu\n\n\n\n(1)  Play Game\n(2)  Rules\n(3)  Highscores\n(4)  Quit\n")
+    choice=raw_input("What do you want to do? 1,2,3 or 4")
+    file=open("mnav.txt", "w")
+    file.write(choice)
+    file.close()
+
+if __name__ == '__main__':
+    menu()
 
 

@@ -12,14 +12,17 @@ import random
 
 global score
 
-def main():
+def start():
     print("Welcome to the game. Your aim is to get 30 points by picking a higher number than the computer.\n However the higher number you pick, the fewer points you get if you win.")
     ready=raw_input("Are you ready? Y/N")
     if ready=="Y" or ready =="y":
         print ("Let's play!")
         game()
     else:
-        print ("Goodbye!")
+        file=open("gnav.txt","w")
+        file.write("3")
+        file.close
+
 ##        menu()
 
 def getscore():
@@ -84,12 +87,16 @@ def game():
         print("score: "+str(score))
     target=30
     if score>=target:
-        print ("You Win! Your final score was: "+str(score))
+        status="1"
     else:
-        print("The computer beat you this time, you lose. Your final score was: "+str(score))
+        status="2"
+    file=open("gnav.txt","w")
+    file.write(status)
+    file.close
     file=open("gamescore.txt", "w")
     file.write(name + ","+str(score))
     file.close()
+
 
 
 ##if __name__ == '__main__':
