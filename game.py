@@ -1,14 +1,16 @@
 #-------------------------------------------------------------------------------
-# Name:        module1
-# Purpose:
-#
+# Name:        game.py
+# Purpose:     Game against the computer, aim to get 30 points by choosing a
+#              higher number than the computer does.
 # Author:      Hannah
 #
 # Created:     25/08/2015
 # Copyright:   (c) Hannah 2015
-# Licence:     <your licence>
+# Licence:     GNU GENERAL PUBLIC LICENSE Version 2, June 1991
 #-------------------------------------------------------------------------------
 import random
+
+global score
 
 def main():
     print("Welcome to the game. Your aim is to get 30 points by picking a higher number than the computer.\n However the higher number you pick, the fewer points you get if you win.")
@@ -18,20 +20,27 @@ def main():
         game()
     else:
         print ("Goodbye!")
-        exit()
+##        menu()
+
+def getscore():
+    return score
 
 def game():
-    x=0
+    global score
     score=0
+    x=0
+    name=raw_input("What is your name?")
     while x<10:
         x=x+1
-        num=random.randint(1, 100)
+        num=random.randint(1, 85)
         guess=int(raw_input("Pick a number between 1 and 100."))
-
+#I need to validate the input because if the input is a letter, the system crashes and the the field is left empty the system crashes. am20150825#
 ##        while type(guess)==str:
 ##            guess=raw_input("Pick a number between 1 and 100.\nPlease do not enter letters.")
 ##        int(guess)
 ##        print(type(guess))
+        print("Computer: "+str(num))
+        print("You: "+ str(guess))
         if guess>num and guess<=10:
             print ("Well done, you get 10 points!")
             points=10
@@ -72,10 +81,16 @@ def game():
             print("The computer beat you this time. Sorry, no points.")
             points=0
         score=score+points
-        print(score)
-    if score>=30:
+        print("score: "+str(score))
+    target=30
+    if score>=target:
         print ("You Win! Your final score was: "+str(score))
     else:
         print("The computer beat you this time, you lose. Your final score was: "+str(score))
-if __name__ == '__main__':
-    main()
+    file=open("gamescore.txt", "w")
+    file.write(name + ","+str(score))
+    file.close()
+
+
+##if __name__ == '__main__':
+##    main()
