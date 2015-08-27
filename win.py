@@ -13,7 +13,7 @@ def win():
     data=file.read().split(",")
     file.close()
     score=data[1]
-    print("\n\n\nWell Done, you win! Your score was: "+score+".\n\n\n")
+    print("Well Done, you win! Your score was: "+score+".\n")
 
 
 

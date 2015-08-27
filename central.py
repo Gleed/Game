@@ -1,6 +1,6 @@
 #-------------------------------------------------------------------------------
 # Name:        central.py
-# Purpose:     To run the game and bring the files together
+# Purpose:     To run the game and bring the files together.
 #
 # Author:      Hannah
 #
@@ -14,18 +14,24 @@ import mainmenu
 import rules
 import win
 import lose
+import os
 
 def main():
+    os.system('color 0b')
     mainmenu.menu()
-    file=open("mnav.txt","r")
+    file=open("menu.txt","r")
     option=file.read()
     if option=="1":
+        os.system('cls')
         play()
     elif option=="2":
+        os.system('cls')
         rule()
     elif option=="3":
+        os.system('cls')
         score()
     elif option=="4":
+        os.system('cls')
         print("Goodbye!")
         exit()
     else:
@@ -33,47 +39,56 @@ def main():
         main()
 
 def play():
-    print("Play Game selected. Going to the Game...\n\n")
+    print("Going to the Game...\n\n")
     game.start()
     file=open("gnav.txt")
     nav=file.read()
     file.close()
     if nav=="1":
+        os.system('cls')
         win.win()
         score()
     elif nav=="2":
+        os.system('cls')
         lose.lose()
         main()
     else:
+        os.system('cls')
         main()
 
 
 def rule():
-    print("Rules selected. Going to Rules...\n\n")
+    print("Going to Rules...\n\n")
+    os.system('cls')
     rules.rules()
     file=open("rnav.txt", "r")
     option=file.read()
     if option=="1":
+        os.system('cls')
         play()
     elif option=="2":
+        os.system('cls')
         main()
     elif option=="3":
+        os.system('cls')
         bye()
 
 def score():
-    print ("Highscores selected. Going to Highscores...\n\n")
+    print ("Going to Highscores...\n")
     highscore.createlist()
     file=open("hnav.txt", "r")
     option=file.read()
     if option=="1":
+        os.system('cls')
         play()
     elif option=="2":
+        os.system('cls')
         main()
     elif option=="3":
+        os.system('cls')
         bye()
 
 def bye():
-    print("Goodbye!")
     exit()
 
 if __name__ == '__main__':

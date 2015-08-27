@@ -11,9 +11,11 @@
 def menu():
 
     print("\n\nMain Menu\n\n\n\n(1)  Play Game\n(2)  Rules\n(3)  Highscores\n(4)  Quit\n")
-    choice=raw_input("What do you want to do? 1,2,3 or 4")
-    file=open("mnav.txt", "w")
-    file.write(choice)
+    option=""
+    while option!="1" and option!="2" and option!="3"and option!="4":
+        option=raw_input("What do you want to do? 1,2,3 or 4")
+    file=open("menu.txt", "w")
+    file.write(option)
     file.close()
 
 if __name__ == '__main__':
