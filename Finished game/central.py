@@ -12,8 +12,6 @@ import game
 import highscore
 import mainmenu
 import rules
-import win
-import lose
 import os
 
 def main():

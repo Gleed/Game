@@ -27,6 +27,8 @@ def game():
     name=""
     while name=="":
         name=raw_input("What is your name?\n")
+    if name=="126":
+        leave()
 
     usepnt=["|Points:    "]
     usescr=["|Score:     "]
